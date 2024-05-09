@@ -1,8 +1,10 @@
+import ProjectsSidebar from "./components/ProjectsSidebar";
+
 const App = () => {
   return (
-    <>
-      <h1>React Project Management App</h1>
-    </>
+    <main className="h-screen my-8">
+      <ProjectsSidebar />
+    </main>
   );
 };
 
