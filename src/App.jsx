@@ -10,7 +10,6 @@ import SelectedProject from "./components/SelectedProject";
 
 const App = () => {
   // App component initial state
-  // selectedProject: ()
   const [projectsState, setProjectsState] = useState({
     selectedProjectId: undefined,
     projects: [],
