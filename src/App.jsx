@@ -40,10 +40,20 @@ const App = () => {
     });
   }
 
+  function handleCancelAddProject() {
+    setProjectsState((prevState) => {
+      return {
+        ...prevState,
+        selectedProjectId: undefined,
+      };
+    });
+  }
+
   const appCtx = {
     projectsState,
     handleStartAddProject,
     handleAddProject,
+    handleCancelAddProject,
   };
 
   let content = <SelectedProject />;
