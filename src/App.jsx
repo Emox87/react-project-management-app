@@ -49,11 +49,28 @@ const App = () => {
     });
   }
 
+  function handleSelectProject(id) {
+    setProjectsState((prevState) => {
+      return {
+        ...prevState,
+        selectedProjectId: id,
+      };
+    });
+  }
+
+  function findProjectById(id) {
+    return projectsState.projects.find(
+      (project) => project.id === projectsState.selectedProjectId
+    );
+  }
+
   const appCtx = {
     projectsState,
     handleStartAddProject,
     handleAddProject,
     handleCancelAddProject,
+    handleSelectProject,
+    findProjectById,
   };
 
   let content = <SelectedProject />;
