@@ -64,6 +64,18 @@ const App = () => {
     );
   }
 
+  function handleDeleteProject() {
+    setProjectsState((prevState) => {
+      return {
+        ...prevState,
+        selectedProjectId: undefined,
+        projects: prevState.projects.filter(
+          (project) => project.id !== prevState.selectedProjectId
+        ),
+      };
+    });
+  }
+
   const appCtx = {
     projectsState,
     handleStartAddProject,
@@ -71,6 +83,7 @@ const App = () => {
     handleCancelAddProject,
     handleSelectProject,
     findProjectById,
+    handleDeleteProject,
   };
 
   let content = <SelectedProject />;
