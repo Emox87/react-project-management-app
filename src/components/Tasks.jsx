@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { RiDeleteBin6Fill } from "react-icons/ri";
 
 import { StateContext } from "../store/StateContext";
 
@@ -30,7 +31,7 @@ export default function Tasks() {
                 className="text-stone-700 hover:text-red-500"
                 onClick={() => handleDeleteTask(task.taskId)}
               >
-                Clear
+                <RiDeleteBin6Fill title="Delete Task" size="1.25em" />
               </button>
             </li>
           ))}
