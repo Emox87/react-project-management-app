@@ -76,6 +76,23 @@ const App = () => {
     });
   }
 
+  function handleAddTask(task) {
+    setProjectsState((prevState) => {
+      const projectId = uuidv4();
+      const newTask = {
+        taskId: projectId,
+        projectId: prevState.selectedProjectId,
+        text: task,
+      };
+      return {
+        ...prevState,
+        tasks: [newTask, ...prevState.tasks],
+      };
+    });
+  }
+
+  function handleDeleteTask() {}
+
   const appCtx = {
     projectsState,
     handleStartAddProject,
@@ -84,11 +101,12 @@ const App = () => {
     handleSelectProject,
     findProjectById,
     handleDeleteProject,
+    handleAddTask,
+    handleDeleteTask,
   };
 
   let content = <SelectedProject />;
 
-  // Adding new project on null value
   if (projectsState.selectedProjectId === null) {
     content = <NewProject />;
   } else if (projectsState.selectedProjectId === undefined) {

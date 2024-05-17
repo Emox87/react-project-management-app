@@ -2,6 +2,8 @@ import { useContext } from "react";
 
 import { StateContext } from "../store/StateContext";
 
+import Tasks from "./Tasks";
+
 export default function SelectedProject() {
   const { projectsState, findProjectById, handleDeleteProject } =
     useContext(StateContext);
@@ -32,6 +34,7 @@ export default function SelectedProject() {
           {project.description}
         </p>
       </header>
+      <Tasks />
     </div>
   );
 }
