@@ -91,7 +91,14 @@ const App = () => {
     });
   }
 
-  function handleDeleteTask() {}
+  function handleDeleteTask(id) {
+    setProjectsState((prevState) => {
+      return {
+        ...prevState,
+        tasks: prevState.tasks.filter((task) => task.taskId !== id),
+      };
+    });
+  }
 
   const appCtx = {
     projectsState,
