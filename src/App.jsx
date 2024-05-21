@@ -8,8 +8,6 @@ import NewProject from "./components/NewProject";
 import SelectedProject from "./components/SelectedProject";
 
 const App = () => {
-  console.log("APP Render");
-
   const { selectedProjectId } = useContext(StateContext);
 
   let content = <SelectedProject />;
