@@ -4,7 +4,7 @@ import { StateContext } from "../store/StateContext";
 
 export default function NewTask() {
   const [enteredTask, setEnteredTask] = useState("");
-  const { handleAddTask } = useContext(StateContext);
+  const { addTask } = useContext(StateContext);
 
   function handleChange(event) {
     setEnteredTask(event.target.value);
@@ -15,7 +15,7 @@ export default function NewTask() {
       return;
     }
 
-    handleAddTask(enteredTask);
+    addTask(enteredTask);
     setEnteredTask("");
   }
 
@@ -39,7 +39,7 @@ export default function NewTask() {
       <button
         className="text-stone-700 hover:text-stone-950"
         onClick={() => {
-          handleAddTask(enteredTask);
+          addTask(enteredTask);
           setEnteredTask("");
         }}
       >

@@ -6,7 +6,7 @@ import Input from "./Input";
 import Modal from "./Modal";
 
 export default function NewProject() {
-  const { handleAddProject, handleCancelAddProject } = useContext(StateContext);
+  const { addProject, cancelProject } = useContext(StateContext);
   const modal = useRef();
   const title = useRef();
   const description = useRef();
@@ -28,7 +28,7 @@ export default function NewProject() {
       return;
     }
 
-    handleAddProject({
+    addProject({
       title: enteredTitle,
       description: enteredDescription,
       dueDate: enteredDueDate,
@@ -51,7 +51,7 @@ export default function NewProject() {
           <li>
             <button
               className="text-stone-800 hover:text-stone-950"
-              onClick={handleCancelAddProject}
+              onClick={cancelProject}
             >
               Cancel
             </button>

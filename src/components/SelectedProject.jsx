@@ -5,9 +5,9 @@ import { StateContext } from "../store/StateContext";
 import Tasks from "./Tasks";
 
 export default function SelectedProject() {
-  const { projectsState, findProjectById, handleDeleteProject } =
+  const { selectedProjectId, findProjectById, deleteProject } =
     useContext(StateContext);
-  const project = findProjectById(projectsState.selectedProjectId);
+  const project = findProjectById(selectedProjectId);
 
   const formattedDate = new Date(project.dueDate).toLocaleDateString("en-US", {
     year: "numeric",
@@ -23,8 +23,8 @@ export default function SelectedProject() {
             {project.title}
           </h1>
           <button
-            className="text-stone-600  hover:text-stone-950"
-            onClick={handleDeleteProject}
+            className="text-stone-600  hover:text-red-500"
+            onClick={deleteProject}
           >
             Delete
           </button>

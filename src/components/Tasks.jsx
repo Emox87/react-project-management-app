@@ -6,12 +6,7 @@ import { StateContext } from "../store/StateContext";
 import NewTask from "./NewTask";
 
 export default function Tasks() {
-  const { projectsState, handleDeleteTask } = useContext(StateContext);
-  const { tasks } = projectsState;
-
-  const selectedProjectTasks = tasks.filter(
-    (task) => task.projectId === projectsState.selectedProjectId
-  );
+  const { deleteTask, selectedProjectTasks } = useContext(StateContext);
 
   return (
     <section>
@@ -29,7 +24,7 @@ export default function Tasks() {
               <span>{task.text}</span>
               <button
                 className="text-stone-700 hover:text-red-500"
-                onClick={() => handleDeleteTask(task.taskId)}
+                onClick={() => deleteTask(task.taskId)}
               >
                 <RiDeleteBin6Fill title="Delete Task" size="1.25em" />
               </button>
