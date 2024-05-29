@@ -1,17 +1,17 @@
 import { useContext } from "react";
 
-import { StateContext } from "./store/StateContext";
+import { StateContext } from "./store/AppStateContext.jsx";
+import ProjectsSidebar from "./components/ProjectsSidebar.jsx";
+import NewProject from "./components/NewProject.jsx";
+import NoProjectSelected from "./components/NoProjectSelected.jsx";
+import SelectedProject from "./components/SelectedProject.jsx";
 
-import ProjectsSidebar from "./components/ProjectsSidebar";
-import NoProjectSelected from "./components/NoProjectSelected";
-import NewProject from "./components/NewProject";
-import SelectedProject from "./components/SelectedProject";
-
-const App = () => {
+function App() {
   const { selectedProjectId } = useContext(StateContext);
 
   let content = <SelectedProject />;
 
+  // Adding new project if null
   if (selectedProjectId === null) {
     content = <NewProject />;
   } else if (selectedProjectId === undefined) {
@@ -26,6 +26,6 @@ const App = () => {
       </main>
     </>
   );
-};
+}
 
 export default App;

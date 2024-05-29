@@ -1,9 +1,8 @@
 import { useRef, useContext } from "react";
 
-import { StateContext } from "../store/StateContext";
-
-import Input from "./Input";
-import Modal from "./Modal";
+import { StateContext } from "../store/AppStateContext.jsx";
+import Input from "./Input.jsx";
+import Modal from "./Modal.jsx";
 
 export default function NewProject() {
   const { addProject, cancelProject } = useContext(StateContext);
@@ -17,13 +16,13 @@ export default function NewProject() {
     const enteredDescription = description.current.value;
     const enteredDueDate = dueDate.current.value;
 
-    // Validation
+    // validation
     if (
       enteredTitle.trim() === "" ||
       enteredDescription.trim() === "" ||
       enteredDueDate.trim() === ""
     ) {
-      // show error modal
+      // show the error modal
       modal.current.open();
       return;
     }
@@ -37,13 +36,15 @@ export default function NewProject() {
 
   return (
     <>
-      <Modal ref={modal} buttonCaption="Try Again">
-        <h2 className="text-xl font-bold text-stone-700 mt-4 mb-4">
+      <Modal ref={modal} buttonCaption="Okay">
+        <h2 className="text-xl font-bold text-stone-700 mt-4 my-4">
           Invalid Input
         </h2>
-        <p className="text-stone-600 mb-4">You forgot to enter a value.</p>
         <p className="text-stone-600 mb-4">
-          Please make sure you provide a valid value for every input field.
+          Oops ... looks like you forgot to enter a value.
+        </p>
+        <p className="text-stone-600 mb-4">
+          Please make sure you provide a value for every input field.
         </p>
       </Modal>
       <div className="w-[35rem] mt-16">
@@ -66,9 +67,9 @@ export default function NewProject() {
           </li>
         </menu>
         <div>
-          <Input label="Title" ref={title} type="text" />
+          <Input label="Title" type="text" ref={title} />
           <Input label="Description" textarea ref={description} />
-          <Input label="Due Date" ref={dueDate} type="date" />
+          <Input label="Due Date" type="date" ref={dueDate} />
         </div>
       </div>
     </>
